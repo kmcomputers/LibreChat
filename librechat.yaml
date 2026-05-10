@@ -9,23 +9,20 @@ endpoints:
       baseURL: "${LITELLM_BASE_URL}"
       models:
         default:
-          - gemini/gemini-3.1-flash-lite-preview
-          - gemini/gemini-2.5-pro
-          - perplexity/sonar
-          - perplexity/sonar-pro
-          - perplexity/sonar-deep-research
-          - perplexity/sonar-reasoning-pro
           - gpt-5.5
           - gpt-5-mini
           - gpt-5-chat-latest
+          - claude-haiku-4-5
+          - claude-sonnet-4-6
+          - claude-opus-4-7
           - xai/grok-4-latest
           - xai/grok-4
           - xai/grok-3
           - xai/grok-4-fast-reasoning
-          - xai/grok-3-mini-latest
-          - claude-haiku-4-5
-          - claude-sonnet-4-6
-          - claude-opus-4-7
-
+          - gemini/gemini-3.1-flash-lite-preview
+          - gemini/gemini-2.5-pro
+          - perplexity/sonar
+          - perplexity/sonar-pro
+        fetch: true
       titleConvo: true
       titleModel: "gpt-5-mini"
