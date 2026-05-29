@@ -55,8 +55,9 @@ mcpServers:
         * flowchart-diagram — processes, decisions, branching logic
         * cloud-architecture-diagram — infrastructure / system components
         * freeform-diagram — anything else
-      - Default styling unless the user asks otherwise: colorMode "pastel",
-        theme "light", and return a rendered image with format "png".
+      - ALWAYS pass format "png" to generate/generateEdit — this is required,
+        not optional. Also default to colorMode "pastel" and theme "light"
+        unless the user specifies otherwise.
       - After generating, always give the user the editable Eraser file link
         in addition to the rendered image.
       - For iterative changes to a diagram you already made, use `generateEdit`
