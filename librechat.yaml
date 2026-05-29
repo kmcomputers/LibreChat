@@ -2,6 +2,14 @@ version: 1.2.8
 
 cache: true
 
+# Make the MCP server picker available in the chat UI and grant users
+# permission to use MCP servers (e.g. Eraser). The picker shows servers
+# whose `chatMenu` is not false.
+interface:
+  mcpServers:
+    placeholder: "MCP Servers"
+    use: true
+
 endpoints:
   custom:
     - name: "LiteLLM"
@@ -26,3 +34,17 @@ endpoints:
         fetch: true
       titleConvo: true
       titleModel: "gpt-5-mini"
+
+# Eraser MCP server (remote, OAuth). Each user authenticates to their own
+# Eraser account via the browser on first use; OAuth is auto-detected and
+# uses Dynamic Client Registration. Callback URL:
+#   https://librechat-production-34f1.up.railway.app/api/mcp/eraser/oauth/callback
+mcpServers:
+  eraser:
+    type: streamable-http
+    url: "https://app.eraser.io/api/mcp"
+    title: "Eraser"
+    description: "Generate and edit Eraser diagrams (architecture, sequence, ERD, flowchart) from natural language."
+    serverInstructions: true
+    timeout: 120000
+    initTimeout: 30000
