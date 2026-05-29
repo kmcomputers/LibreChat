@@ -2,6 +2,16 @@ version: 1.2.8
 
 cache: true
 
+# Track token usage per conversation. startBalance is set very high so
+# no user is ever blocked; autoRefill keeps it topped up daily.
+balance:
+  enabled: true
+  startBalance: 500000000
+  autoRefillEnabled: true
+  refillIntervalValue: 1
+  refillIntervalUnit: "days"
+  refillAmount: 500000000
+
 # modelSpecs enable Artifacts (Mermaid + React/HTML) on the main models.
 # LibreChat auto-injects an Artifacts system prompt that tells the model
 # to proactively generate Mermaid diagrams whenever they'd be helpful
