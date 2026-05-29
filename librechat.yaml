@@ -2,6 +2,46 @@ version: 1.2.8
 
 cache: true
 
+# modelSpecs enable Artifacts (Mermaid + React/HTML) on the main models.
+# LibreChat auto-injects an Artifacts system prompt that tells the model
+# to proactively generate Mermaid diagrams whenever they'd be helpful
+# (explanations, flows, architectures, ERDs, sequences, etc.).
+# Users can still pick any model from the full LiteLLM list via the
+# model selector — these specs just set smart defaults.
+modelSpecs:
+  prioritize: true
+  list:
+    - name: "claude-sonnet"
+      label: "Claude Sonnet 4.6"
+      artifacts: true
+      preset:
+        endpoint: "LiteLLM"
+        model: "claude-sonnet-4-6"
+    - name: "gpt5"
+      label: "GPT-5.5"
+      artifacts: true
+      preset:
+        endpoint: "LiteLLM"
+        model: "gpt-5.5"
+    - name: "claude-opus"
+      label: "Claude Opus 4.7"
+      artifacts: true
+      preset:
+        endpoint: "LiteLLM"
+        model: "claude-opus-4-7"
+    - name: "gemini-pro"
+      label: "Gemini 2.5 Pro"
+      artifacts: true
+      preset:
+        endpoint: "LiteLLM"
+        model: "gemini/gemini-2.5-pro"
+    - name: "gpt5-mini"
+      label: "GPT-5 Mini"
+      artifacts: true
+      preset:
+        endpoint: "LiteLLM"
+        model: "gpt-5-mini"
+
 # Make the MCP server picker available in the chat UI and grant users
 # permission to use MCP servers (e.g. Eraser). The picker shows servers
 # whose `chatMenu` is not false.
