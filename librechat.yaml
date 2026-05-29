@@ -45,6 +45,21 @@ mcpServers:
     url: "https://app.eraser.io/api/mcp"
     title: "Eraser"
     description: "Generate and edit Eraser diagrams (architecture, sequence, ERD, flowchart) from natural language."
-    serverInstructions: true
+    serverInstructions: |
+      When using the Eraser tools to create or edit diagrams:
+      - Use `generate` to create a diagram from a natural-language description.
+        Only use `create` when the user supplies explicit Eraser DSL code.
+      - Pick the diagramType that best fits the request:
+        * sequence-diagram — interactions/messages between parties over time
+        * entity-relationship-diagram — database schemas, tables, relationships
+        * flowchart-diagram — processes, decisions, branching logic
+        * cloud-architecture-diagram — infrastructure / system components
+        * freeform-diagram — anything else
+      - Default styling unless the user asks otherwise: colorMode "pastel",
+        theme "light", and return a rendered image with format "png".
+      - After generating, always give the user the editable Eraser file link
+        in addition to the rendered image.
+      - For iterative changes to a diagram you already made, use `generateEdit`
+        rather than regenerating from scratch.
     timeout: 120000
     initTimeout: 30000
